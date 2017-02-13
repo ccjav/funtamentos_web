@@ -1,0 +1,25 @@
+.container {
+  margin: 0 auto;
+  width: 768px;
+}
+
+.top-nav {
+  position: fixed;
+  width: 100%;
+  background-color: gray;
+  top: 0;
+}
+nav {
+  display: flex;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
