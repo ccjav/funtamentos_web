@@ -1,0 +1,48 @@
+.container {
+  margin: 0 auto;
+  width: 768px;
+}
+
+header {
+  background-color: black;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+
+/*.content {
+  float: right
+}*/
+
+nav {
+  background-color: gray;
+  float: right;
+  height: 503px;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 20px 0 0 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 115%;
+}
+
+.footer {
+  border-top: 1px solid black;
+  padding: 18px 0 0;
+  clear: both;
+  box-sizing: border-box;
+}
