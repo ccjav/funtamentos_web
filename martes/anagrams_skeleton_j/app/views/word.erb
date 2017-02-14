@@ -1,0 +1,13 @@
+<h1>Find Anagrams!</h1>
+
+<% if @new_word %>
+  <p>Estos son anagramas para '<%= @new_word %>':</p>
+  <p># Aqui deberás enlistar todos los anagramas</p>
+
+<% end %>
+
+
+
+<% @canon_list.each do |post| %>
+  <h1><%= post.word %></h1>
+<% end %>
