@@ -6,22 +6,42 @@
 .top-nav {
   position: fixed;
   width: 100%;
-  background-color: gray;
+  background-color: rgba(68,68,68,1);
   top: 0;
+  padding: .5em 0;
 }
+
 nav {
   display: flex;
 }
 
+#logo {
+  align-self: center;
+}
 nav ul {
   list-style-type: none;
   display: flex;
-  margin-left: auto
+  margin: 0 0 0 auto;
+  font-size: 1.15em;
+  align-self: center;
 }
 
+nav li {
+  margin-left: 3em;
+}
 nav ul li a {
   color: white;
   text-decoration: none;
 }
 
-.dfs
+.opacize {
+  background-color: rgba(68,68,68,.7);
+}
+
+.content {
+  margin-top: 8em;
+}
+
+.footer {
+  margin: 3em 0;
+}
