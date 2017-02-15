@@ -1,0 +1,19 @@
+  <h1>Bienvenido a Sinatra!</h1>
+  <p>Este es un esqueleto de sinatra que armamos para ti</p>
+
+<form action="/urls" method="post">
+  <input type="text" name="user_word">
+  <input type="submit">
+</form>
+
+<% if @last_url %>
+  <% @last_url.each do |post| %>
+    <p><%= post.url %> <a href="/<%= post.short_url %>"><%= post.short_url %></a></p>
+  <% end %>
+<% end %>
+  
+<% if @error %>
+  
+    <p><%= @error %></p>
+
+<% end %>
