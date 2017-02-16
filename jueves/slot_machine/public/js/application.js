@@ -1,6 +1,11 @@
 $(document).ready(function() {
-  $("#submit").click(function(){
-        $.post("rolls");
-        console.log( "You clicked a paragraph!" );
+  $( "#slotform" ).on( "submit", function( event ) {
+    event.preventDefault();
+    var formData = $( this ).serialize();
+    // console.log( "dentro de submit... " + formData );
+    $.post( "rolls", formData, function( data ) {
+      // console.log( data );
+      $( "#die" ).html( data );
     });
+  });
 });

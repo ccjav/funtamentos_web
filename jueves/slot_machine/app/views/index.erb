@@ -5,13 +5,10 @@
 <h1>Slot Machine</h1>
 
 <div id="slot-machine">
-  <form method="post" action="/rolls">
+  <form id="slotform" action="/rolls">
     <input id="submit" type="submit" value="SPIN">
   </form>
   <div id="die">
     <%= erb :_die_roll, layout: false %>
   </div>
 </div>
-
-<button id="boton">Get External Content</button>
-<div id="hola"></div>
