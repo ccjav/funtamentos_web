@@ -2,12 +2,13 @@
 
 <% if @new_word %>
   <p>Estos son anagramas para '<%= @new_word %>':</p>
-  <p># Aqui deberás enlistar todos los anagramas</p>
-
+  <% @canon_list.each do |post| %>
+    <p><%= post.word %></p>
+  <% end %>
 <% end %>
 
+<p>Busca una nueva palabra:</p>
+<%= erb :_form, :layout => false %>
 
 
-<% @canon_list.each do |post| %>
-  <h1><%= post.word %></h1>
-<% end %>
+

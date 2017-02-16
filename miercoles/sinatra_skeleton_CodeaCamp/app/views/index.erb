@@ -8,7 +8,7 @@
 
 <% if @last_url %>
   <% @last_url.each do |post| %>
-    <p><%= post.url %> <a href="/<%= post.short_url %>"><%= post.short_url %></a></p>
+    <p><%= post.url %> <a href="/<%= post.short_url.last(6) %>"><%= post.short_url %></a></p>
   <% end %>
 <% end %>
   

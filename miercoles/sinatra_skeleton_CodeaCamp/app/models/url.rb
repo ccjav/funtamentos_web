@@ -13,6 +13,6 @@ class Url < ActiveRecord::Base
       # http://stackoverflow.com/questions/88311/how-best-to-generate-a-random-string-in-ruby
       o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
       string = (0...6).map { o[rand(o.length)] }.join
-      self.short_url = "#{string}"
+      self.short_url = "http://www.sho.rt/#{string}"
     end
 end
