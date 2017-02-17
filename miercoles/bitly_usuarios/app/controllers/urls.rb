@@ -1,6 +1,5 @@
 get '/' do
-  # Deja a los usuarios crear una URL reducida y despliega una lista de URLs. 
-  @last_url = Url.all
+  # @last_url = Url.all
   erb :index
 end
 
@@ -27,7 +26,6 @@ get '/:short_url' do
   puts "current field ... #{current_field[0]}"
   current_field[0].increment!(:click_count, 1)
   original_url = current_field[0].url
-  # puts original_url
   redirect to (original_url)
 end
 

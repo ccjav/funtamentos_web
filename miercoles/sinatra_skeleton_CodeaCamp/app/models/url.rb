@@ -2,8 +2,6 @@ class Url < ActiveRecord::Base
   # Remember to create a migration!
   before_create :shorten_link
   # validates :url, :uniqueness => true
-  # validates :url, :format => { :with => /http/ }
-  # validates :url, :presence => true
   validates :url, presence: true
   validates :url, format: { with: URI.regexp }, allow_blank: true
   # def validate!
