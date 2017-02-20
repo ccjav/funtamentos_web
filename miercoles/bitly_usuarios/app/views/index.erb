@@ -1,17 +1,25 @@
-  <h1>Bienvenido a Sinatra!</h1>
-  <p>Este es un esqueleto de sinatra que armamos para ti</p>
+<% if @session %>
+	<p><a href="/users/<%= @session %>">Profile</a></p>
+	<p><a href="/logout">Log out</a></p>
+<% else %>
+	<p><a href="/register">Register</a></p>
+	<p><a href="/login">Login</a></p>
+<% end %>
 
-<form action="/urls" method="post">
+
+<h1>URL Shortener</h1>
+
+<form action="/" method="post">
   <input type="text" name="user_word">
   <input type="submit">
 </form>
 
 <% if @last_url %>
   <% @last_url.each do |post| %>
-    <p><%= post.url %> <a href="/<%= post.short_url.last(6) %>"><%= post.short_url %></a></p>
+    <p><%= post.url %> <a href="/short/<%= post.short_url.last(6) %>"><%= post.short_url %></a></p>
   <% end %>
 <% end %>
-  
+
 <% if @error %>
     <p><%= @error %></p>
 <% end %>

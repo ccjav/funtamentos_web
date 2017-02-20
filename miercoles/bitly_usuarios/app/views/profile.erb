@@ -1,0 +1,10 @@
+<p><a href="/">Home</a></p>
+<% if @user %>
+	<p><%= @user.name %></p>
+	<p><%= @user.email %></p>
+<% end %>
+<% if @user_urls %>
+  <% @user_urls.each do |post| %>
+    <p><%= post.url %> <a href="/short/<%= post.short_url.last(6) %>"><%= post.short_url %></a> <%= post.click_count %></p>
+  <% end %>
+<% end %>
