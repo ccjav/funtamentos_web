@@ -1,0 +1,8 @@
+<h1>Edit</h1>
+<form action="/posts/<%= @post.id %>/edit" method="post">
+  Title: <input type="text" name="post_title" value="<%= @post.title %>">
+  Author: <input type="text" name="post_author" value="<%= @post.author %>">
+  Body: <textarea name="post_body"><%= @post.body %></textarea>
+  Tags: <input type="text" name="post[tags]" value="<%= @tags %>">
+  <input type="submit">
+</form>

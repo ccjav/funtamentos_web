@@ -43,9 +43,7 @@ end
 get '/short/:short_url' do
   # redirige a la URL original
   dir = "http://www.sho.rt#{request.path_info.last(7)}"
-  # puts "DIR!!! ---  #{dir}"
   current_field = Url.where(short_url: dir)
-  # puts "current field ... #{current_field[0]}"
   current_field[0].increment!(:click_count, 1)
   original_url = current_field[0].url
   redirect to (original_url)

@@ -1,0 +1,14 @@
+<h1>All posts</h1>
+
+<% if @all_posts %>
+  <% @all_posts.each do |post| %>
+    <div>
+      <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+      <p><%= post.author %></p>
+      <p><%= post.date %></p>
+      <div>
+        <%= post.body %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
