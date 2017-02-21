@@ -3,7 +3,6 @@ after '/urls' do
 end
 
 before '/' do
-  @hola = @hola
   if logged_in?
     @session = current_user
   end
@@ -11,7 +10,7 @@ end
 
 get '/' do
   @last_url = Url.all
-  p @url
+
   erb :index
 end
 

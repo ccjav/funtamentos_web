@@ -1,0 +1,9 @@
+<h1>Choose a deck</h1>
+<% if @decks %>
+  <% @decks.each do |deck| %>
+    <p><a href="/decks/<%= deck.id %>/<%= deck.cards[0].id %>"><%= deck.name %></a></p>
+  <% end %>
+  
+  <p><a href="/logout">Log out</a></p>
+<% end %>
+

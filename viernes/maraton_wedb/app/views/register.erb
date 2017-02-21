@@ -1,0 +1,21 @@
+<p>registro</p>
+<form action="/register" method="post">
+  <p>Name: <input type="text" name="name"></p>
+  <p>Email: <input type="text" name="email"></p>
+  <p>Password: <input type="text" name="password"></p>
+  <input type="submit">
+</form>
+
+<% if @error_name %>
+    <p>Name <%= @error_name[0] %></p>
+<% end %>
+
+<% if @error_email %>
+    <p>Email <%= @error_email[0] %></p>
+<% end %>
+
+<% if @error_password %>
+    <p>Password <%= @error_password[0] %></p>
+<% end %>
+
+<p><a href="/">Inicio</a></p>

@@ -1,0 +1,5 @@
+<form id="answer_form" action="/<%= @card.deck.id %>/<%= @card.id %>/answer" method="post">
+  <p><%= @card.question %></p>
+  <p>Answer: <input type="text" name="answer"></p>
+  <input type="submit">
+</form>

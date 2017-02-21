@@ -6,10 +6,18 @@
     <div>
       <%= @post.body %>
     </div>
+    <% if @tags %>
+      <footer>
+          <% @tags.each do |tag| %>
+            <span><%= tag.tag %></span>
+          <% end %>
+      </footer>
+    <% end %>
+  </article>
+    
     <a href="/posts/<%= @post.id %>/edit">Edit</a>
     <form action="/posts/<%= @post.id %>" method="post">
       Delete: <input type="submit">
     </form>
-  </article>
 <% end %>
 
