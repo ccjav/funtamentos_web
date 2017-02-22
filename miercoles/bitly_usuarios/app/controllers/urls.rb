@@ -22,7 +22,7 @@ post '/' do
     @url = Url.new(url: params[:user_word])
   end
   if @url.save
-    redirect to ("/")
+    erb :_current_link, layout: false
   else
     @error = @url.errors.messages[:url]
     if @error[0] == "is invalid"
@@ -30,6 +30,8 @@ post '/' do
     end
     erb :index
   end
+
+
 end
 
 get '/users/:id' do
