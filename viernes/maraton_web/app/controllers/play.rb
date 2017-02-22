@@ -1,36 +1,48 @@
 get '/play' do
   @decks = Deck.all
-  @decks.each do |x|
-    p x.name#.cards[0].question
-  end
   erb :play
 end
 
-get '/decks/:deck_id/:card_id' do 
-  cards = Card.where(deck_id: params[:deck_id])
-  @card = cards.find(params[:card_id])
-  p @card.deck
+get '/decks/:deck_id' do 
+  card = Card.where(deck_id: params[:deck_id])
+  session[:card] = 0
+  @card = card[session[:card]]
+  # @deck = Deck.find(params[:deck_id])
+  # if @deck.cards[0].id == @card.id
+  #   round = Round.create(deck_id: params[:deck_id])
+  #   session[:round] = round.id
+  # end
   erb :deck
 end
 
-post '/:deck_id/:card_id/answer' do
-  p params[:card_id]
-  round = Round.create(deck_id: params[:deck_id])
-  card = Card.find(params[:card_id])
-  correct_answer = card.answer
-  if params[:answer] == correct_answer
-    Guess.create(correct: true)
-    p "BIENN!!!"
-  else
-    Guess.create(correct: false)
-    p "MAAALL!!"
-  end
-  redirect "/decks/#{params[:deck_id]}/#{params[:card_id].to_i + 1}"
-  # if @user = User.find_by(email: params[:email], password: params[:password])
-  #   session[:id] = @user.id
-  #   redirect "/"
+post '/play' do
+  # card = Card.where(deck_id: params[:deck_id])
+  round = Round.where(id: session[:round])
+  deck = Deck.find(round[0].deck_id)
+  p "DECK #{deck.cards[0]}"
+  p round[0].deck_id
+  # p round[0].guesses
+  session[:card] += 1
+  puts "PARAMS #{params}"
+  p session
+  @card = deck.cards[session[:card]]
+  # if params[:answer] == @card.answer
+  #   Guess.create(correct: true, round_id: session[:round])
+  #   @right_wrong = "Bien"
+  #   # <p><a href=\"/decks/#{params[:deck_id]}/cards/#{params[:card_id].to_i + 1}\">Siguiente</a></p>"
+  #   # redirect "/decks/#{params[:deck_id]}/cards/#{params[:card_id].to_i + 1}"
   # else
-  #   @error = "Wrong email or password"
-  #   erb :login
+  #   Guess.create(correct: false, round_id: session[:round])
+  #   @right_wrong = "Mal"
+
+  #       # redirect "/decks/#{params[:deck_id]}/cards/#{params[:card_id].to_i + 1}"
+
   # end
+  p "CARD #{@card.id}"
+  # if deck.cards[-1].id == @card.id
+  #   @hola = "terminaste"
+  # end
+  erb :_deck_form, layout: false
+  # redirect "/decks/#{params[:deck_id]}/#{params[:card_id].to_i + 1}"
+
 end
