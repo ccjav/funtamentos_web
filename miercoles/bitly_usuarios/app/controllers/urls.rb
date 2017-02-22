@@ -28,7 +28,7 @@ post '/' do
     if @error[0] == "is invalid"
       @error = "Url inválida. No olvide iniciar con 'http'"
     end
-    erb :index
+    @error
   end
 
 
