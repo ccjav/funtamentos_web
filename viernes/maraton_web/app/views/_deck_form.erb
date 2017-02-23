@@ -1,4 +1,4 @@
-<form id="answer_form" data-card="<%= @card.id %>">
+<form id="answer_form" method="post" data-card="<%= @card.id %>">
   <p><%= @card.question %></p>
   <p>Answer: <input type="text" name="answer"></p>
   <input type="submit">

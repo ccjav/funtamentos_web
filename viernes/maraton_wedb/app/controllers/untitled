@@ -1,3 +1,0 @@
-get '/play' do
-  erb :register
-end
