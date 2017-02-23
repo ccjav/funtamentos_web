@@ -1,0 +1,16 @@
+<% if @rounds %>
+  <% @rounds.each_with_index do |round, index| %>
+    <div>
+      <h2>Round <%= index + 1 %></h2>
+      <% round.guesses.each_with_index do |guess, index| %>
+        <p>Pregunta <%= index + 1 %> 
+          <% if guess.correct == true %>
+            Correcta
+          <% else %>
+            Incorrecta
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

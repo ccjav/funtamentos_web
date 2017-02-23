@@ -1,0 +1,15 @@
+<h1>Stats</h1>
+
+<p>Deck: <%= @deck.name %></p>
+
+<% if @guesses %>
+  <% @guesses.each_with_index do |guess, index| %>
+    <p>Pregunta <%= index + 1 %> 
+      <% if guess.correct == true %>
+        Correcta
+      <% else %>
+        Incorrecta
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
