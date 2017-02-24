@@ -1,15 +1,15 @@
 $(document).ready(function() {
-  
+
   for(var i = 0; i < 100; i++) {
     $("tr").append("<td></td>");
   }
-  
+
   var cells = $('#Player2 td');
   var cells_length = cells.length
 
 
-  function rayuela(index, interval, player){
-    var cell = $('#Player2 td').eq(index%cells_length);
+  function rayuela(index, interval){
+    var cell = cells.eq(index%cells_length);
     console.log(cell);
     if (cell.is('.active')) {
       cell.removeClass('active');
@@ -20,16 +20,19 @@ $(document).ready(function() {
     var res = null;
     myVar = setTimeout(function(){
       rayuela(++index, interval);
-      console.log(index);
-      if (index >= 85) {
-        console.log("ochenta y cinco!!");
-      }
+      // console.log(index);
+      // if (index >= 85) {
+      //   console.log("ochenta y cinco!!");
+      // }
     }, interval)
 
+    // $('#parent .child').click(function() {
+    //     var index = $(this).index();
+    // });
     if(cell.is(':last-child')) {
       clearTimeout(myVar);
     }
-
+    // console.log($('#Player2 .active').index());
     // $( document ).keyup(function(e) {
     //   if (e.key == "d") {
     //     console.log(e);
@@ -39,14 +42,14 @@ $(document).ready(function() {
     // });
   }
 
-  rayuela(0, 45, "Player2");
+  rayuela(0, 45);
 
   function myStopFunction() {
-    
     $( document ).keyup(function(e) {
       if (e.key == "d") {
         console.log(e);
-        clearTimeout(myVar);    
+        clearTimeout(myVar);
+        console.log($('#Player2 .active').index());
       }
     });
   }
@@ -54,9 +57,9 @@ $(document).ready(function() {
 
   myStopFunction();
 
-  
+
   // var needStop = false;
-  
+
 // var buttons = $('.button'),
 //     buttons_length = buttons.length;
 
@@ -80,7 +83,7 @@ $(document).ready(function() {
 
 
 // sliiide(0, 500);
-  
+
   // console.log(needStop)
   // function yea(){
   //   needStop = true;
@@ -92,11 +95,11 @@ $(document).ready(function() {
     //       el.removeClass("active").next().addClass("active");
     //     }
     //   }, 50);
-    // });   
+    // });
   // function throw_coin(player) {
-  //   $("#" + player + " td" ).each(function(i) { 
+  //   $("#" + player + " td" ).each(function(i) {
   //     var el=$(this);
-  //     myVar = setTimeout(function() { 
+  //     myVar = setTimeout(function() {
   //       if ($(el).next().length) {
   //         el.removeClass("active").next().addClass("active");
   //       }
@@ -116,7 +119,7 @@ $(document).ready(function() {
   // }
   // throw_coin("Player2");
   // function myStopFunction() {
-    
+
   // }
   // myStopFunction();
 //   var myVar = setInterval(function(){ myTimer() }, 1000);
@@ -130,7 +133,7 @@ $(document).ready(function() {
 // function myStopFunction() {
 //     clearInterval(myVar);
 // }
-  
+
 });
 
 
