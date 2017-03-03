@@ -17,9 +17,10 @@ end
 post '/play' do
   round = Round.find(session[:round])  
   deck = Deck.find(round.deck_id) 
+  @card_answer = deck.cards[session[:card]].answer
   session[:card] += 1
   @card = deck.cards[session[:card]]
-  if params[:answer] == @card.answer
+  if params[:answer] == @card_answer
     Guess.create(correct: true, round_id: session[:round])
     @right_wrong = "Bien"
    else
